@@ -63,7 +63,12 @@
     cursor: pointer;
     z-index: 2;
     transition: color 0.3s;
-
+}
+.card__delete{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
 }
 
 

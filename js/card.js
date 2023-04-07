@@ -17,7 +17,7 @@ class Card {
         this.cardRate = this.element.querySelector('.card__rate'); 
         this.cardAge = this.element.querySelector('.card__age'); 
         this.cardDescription = this.element.querySelector('.card__description'); 
-        this.cardisFavourite = this.element.querySelector('.card__favourite')
+        this.cardIsFavorite = this.element.querySelector('.card__favorite')
 
 
         return this.element
