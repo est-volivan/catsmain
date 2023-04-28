@@ -1,7 +1,22 @@
-// Массив для котов с бэка 
-catsArray = []
+const removeAllEmpty = (obj) => {
+    const newObj = {}
+    for(let key in obj){
+        if (obj[key] || key === "favorite") {
+            newObj[key] = obj[key]
+        }
+    }
+    return newObj;
+}
 
-fetch ("https://cats.petiteweb.dev/api/single/:user/show")
+const handleResponse = (message) => {   
+    alert(message)
+    location.reload() //перезагрузка страницы
+}
+
+catsArray = [] 
+
+
+fetch ("https://cats.petiteweb.dev/api/single/est-volivan/show")
     .then(response => response.json())
     .then(data => {
         catsArray.push(...data)
@@ -43,7 +58,7 @@ catsArray.forEach(el => {
 
 const popupEditCat = new Popup("popup-edit-cats");
 popupEditCat.setEventListener();
-
+//добавление кота
 function handleFormAddCat(e) {
     e.preventDefault()
     let newCat = {}
@@ -53,9 +68,8 @@ function handleFormAddCat(e) {
     newCat.rate = formAddCat.querySelectorAll('[name="rate"]')[0].value
     newCat.description = formAddCat.querySelectorAll('[name="description"]')[0].value
     newCat.favorite = formAddCat.querySelectorAll('[name="favorite"]')[0].value === "on" ? true : false
-    newCat.img = formAddCat.querySelectorAll('[name="img_link"]')[0].value
-    console.log(newCat)
-    createCat("https://cats.petiteweb.dev/api/single/:user/add",newCat).then(data => alert(data.message))
+    newCat.image = formAddCat.querySelectorAll('[name="img_link"]')[0].value
+    createCat("https://cats.petiteweb.dev/api/single/est-volivan/add",newCat).then(data => handleResponse(data.message))
 
     popupAddCat.close();
 }
@@ -75,16 +89,17 @@ function getCatIdByName(name){
 const deleteCat = async (url="") =>{
     const response = await fetch(url,{
         method:'DELETE',
+        headers:{
+            'Content-type':'application/json'
+        },
     })
-    return response.json()
 } //удаление кота 
 function handleDeleteButton(e){
     const card = e.parentElement;
     const cardLink = card.querySelector('.card__link')
     const cardName = cardLink.querySelector('.card__name').innerText
     const catId = getCatIdByName(cardName)
-    deleteCat(`cats.petiteweb.dev/api/single/:user/delete/${catId}`)
-    console.log(catId)
+    deleteCat(`https://cats.petiteweb.dev/api/single/est-volivan/delete/${catId}`).then(() => handleResponse("Вы удалили котика :( "))
 }
 const editCatFunction = async (url="", data={}) =>{
     const response = await fetch(url,{
@@ -109,9 +124,11 @@ function handleEditButton(e){
         editCat.age  = formEditCat.querySelectorAll('[name="age"]')[0].value
         editCat.rate = formEditCat.querySelectorAll('[name="rate"]')[0].value
         editCat.description = formEditCat.querySelectorAll('[name="description"]')[0].value
-        editCat.favorite = formEditCat.querySelectorAll('[name="favorite"]')[0].value === "on" ? true : false
-        editCat.img = formEditCat.querySelectorAll('[name="img_link"]')[0].value
-        editCatFunction(`https://cats.petiteweb.dev/api/single/:user/update/${catId}`, editCat)
+        editCat.favorite = formEditCat.querySelectorAll('[name="favorite"]')[0].checked
+        editCat.image = formEditCat.querySelectorAll('[name="img_link"]')[0].value
+        console.log(formEditCat.querySelectorAll('[name="favorite"]')[0].checked)
+        editCatFunction(`https://cats.petiteweb.dev/api/single/est-volivan/update/${catId}`, removeAllEmpty(editCat))
+            .then((data) => handleResponse(data.message))
         popupEditCat.close()
         })
 }

@@ -14,7 +14,7 @@
 </head>
 <body class="page">
     <header class="header">
-        <a href="#"><i class="fa-solid fa-cat"></i>Пушичстые мурчики</a>
+        <a href="#"><i class="fa-solid fa-cat"></i>Пушистые мурчики</a>
         <button class="btn" id="add"><i class="fa-solid fa-plus"></i>Добавить котика</button>
     </header>
     <main class="main container">
@@ -26,12 +26,12 @@
         <div class="card">
             <button class="card__delete" type="button" onclick="handleDeleteButton(this)"><i class="fa-solid fa-xmark"></i></button>
             <button class="cat-info__edited" onclick="handleEditButton(this)"><i class="fa-regular fa-pen-to-square"></i>Редактировать</button>
-            <img src="cat.jpg" alt="Изабражение" class="card__image">
+            <img src="cat.jpg" alt="Изображение" class="card__image">
             <a href="#" class="card__link">
                 <h3 class="card__name">Кот</h3>
                 <h2 class="card__wrapper">Оценка: <span class="card__rate">8</span></h2>
                 <h2 class="card__wrapper">Возраст: <span class="card__age">8</span></h2>
-            <p class="card__description">китик</p>
+                <p class="card__description">китик</p>
             </a>
             <button class="card__like" aria-label="Поставить лайк"><i class="card__favorite fa-solid fa-heart fa-2x"></i></button>
         </div>
@@ -41,7 +41,7 @@
             <span class="copyright">©2023 Made by Ivan Volkov</span>
 
             <div class="socials">
-                <a class="socials__link" href="#"><i class="fa-brands fa-github socials__icon"></i></a>
+                <a class="socials__link" href="https://github.com/est-volivan" target="_blank"><i class="fa-brands fa-github socials__icon"></i></a>
                 <a class="socials__link" href="#"><i class="fa-brands fa-vk socials__icon"></i></a>
                 <a class="socials__link" href="#"><i class="fa-brands fa-telegram socials__icon"></i></a>
             </div>
@@ -80,7 +80,7 @@
                 <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
                 <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
                 <label class="form__checkbox-wrap">
-                    <input type="checkbox" name="favorite" class="form__checkbox " placeholder="">
+                    <input type="checkbox" name="favorite" class="form__checkbox " placeholder="кнопка">
                     <span class="form__label">Любимчик</span>
                     <span class="form__fake-checkbox"><i class="fa-regular fa-circle-check"></i></span>
                 </label>

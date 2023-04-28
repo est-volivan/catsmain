@@ -90,14 +90,13 @@
 }
 
 .form__checkbox {
-    appearance: none;
-    position: absolute;
+    position: relative;
 }
 
-.form__checkbox:focus~.form__fake-checkbox,
+/* .form__checkbox:focus~.form__fake-checkbox,
 .form__checkbox:focus~.form__label {
     color: var(--tertiary-color);
-}
+} */
 
 .form__checkbox:checked~.form__fake-checkbox,
 .form__checkbox:checked~.form__label {

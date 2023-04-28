@@ -14,6 +14,7 @@
     align-items: center;
     background-color: bisque;
     border-bottom: 1px solid black;
+    font-size: 24px;
 }
 .header i{
     margin-right: 8px;
@@ -21,6 +22,7 @@
 .footer {
     box-shadow: 0 0 2px 0 var(--bg-secondary-color);
     background-color: var(--bg-main-color);
+    font-size: 24px;
 }
 
 .footer__container {
@@ -34,7 +36,7 @@
 .socials__link {
     padding-right: 8px;
     color: var(--bg-secondary-color);
-    font-size: 25px;
+    font-size: 40px;
 }
 .cards {
     display: flex;
