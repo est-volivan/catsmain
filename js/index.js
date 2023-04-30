@@ -15,13 +15,12 @@ const handleResponse = (message) => {
 
 catsArray = [] 
 
-
-fetch ("https://cats.petiteweb.dev/api/single/est-volivan/show")
+fetch ("https://cats.petiteweb.dev/api/single/est-volivan/show") //отображение котов
     .then(response => response.json())
     .then(data => {
         catsArray.push(...data)
         catsArray.forEach(el => {
-            const cat = new Card(el, '#card-template')
+            const cat = new Card(el, '#card-template') //создаем экземпляр класса
             const catElement = cat.getElement()
             cat.cardImage.setAttribute('src', `${el.image}`)
             cat.cardTitle.innerText = el.name
